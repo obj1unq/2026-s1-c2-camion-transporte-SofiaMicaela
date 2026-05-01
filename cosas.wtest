@@ -1,0 +1,12 @@
+import cosas.*
+import camion.*
+/*
+describe "Test"{
+    test "cosas peligrosas"{
+        bateriaAntiaerea.cargarMisiles()
+        camion.cargar(knightRider)
+        camion.cargar(bateriaAntiaerea)
+        assert.equals(camion.cosasPeligrosas(15), bateriaAntiaerea)
+        
+    }
+}*/
