@@ -1,4 +1,8 @@
 import cosas.*
+import rutas.*
+import almacen.*
+
+
 
 object camion {
 	const property cosas = #{}
@@ -58,5 +62,10 @@ object camion {
 	}
 	method sufrirAccidente() {
 	  cosas.forEach({cosa => cosa.accidentarse()})
+	}
+	method transportar(destino,camino) {
+	if()
+	destino.recibir(cosas)
+	cosas.clear()
 	}
 }
