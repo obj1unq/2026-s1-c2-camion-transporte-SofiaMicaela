@@ -1,12 +1,18 @@
 import cosas.*
 import camion.*
-/*
+import rutas.*
+import almacen.*
 describe "Test"{
-    test "cosas peligrosas"{
-        bateriaAntiaerea.cargarMisiles()
+    test "Carga y descarga"{
+        camion.cargar(bumblebee)
+        assert.equals(#{bumblebee}, camion.carga())
         camion.cargar(knightRider)
-        camion.cargar(bateriaAntiaerea)
-        assert.equals(camion.cosasPeligrosas(15), bateriaAntiaerea)
-        
+        assert.equals(#{bumblebee,knightRider}, camion.carga())
+        camion.descargar(bumblebee)
+        assert.equals(#{knightRider}, camion.carga())
+        assert.throwsException({camion.cargar(knightRider)})
+        assert.equals(#{knightRider}, camion.carga())
+        assert.throwsException({camion.descargar(bumblebee)})
+        assert.equals(#{knightRider}, camion.carga())
     }
-}*/
+}

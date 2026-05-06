@@ -9,14 +9,26 @@ object camion {
 	//const property tara = 1000
 		
 	method cargar(unaCosa) {
+		self.validarCarga(unaCosa)
+		cosas.add(unaCosa)
+		/*
 		if(cosas.contains(unaCosa)){
 			self.error(unaCosa.toString() + " ya esta cargado")
 		}
-		else {cosas.add(unaCosa)}
+		else {cosas.add(unaCosa)}*/
+	}
+	method validarCarga(unaCosa) {
+		if (cosas.contains(unaCosa)){
+			self.error(unaCosa.toString() + " ya esta cargado")}
 	}
 	method descargar(unaCosa) {
-		if (cosas.contains(unaCosa)){cosas.remove(unaCosa)}
-		else{return unaCosa.toString() + " no esta cargado"}
+		self.validarDescarga(unaCosa)
+		cosas.remove(unaCosa)
+	}
+	method validarDescarga(unaCosa) {
+		if (cosas.contains(unaCosa)){
+			self.error(unaCosa.toString() + " no esta cargado")
+		}
 	}
 	method todoPesoPar() {
 		return cosas.all({cosa => cosa.peso()% 2 == 0})
@@ -49,9 +61,6 @@ object camion {
 		return cosas.any({cosa => cosa.peso() >= min && cosa.peso() <= max})
 	}
 	method cosaMasPesada(){
-		if(cosas.isEmpty()){
-			self.error("No hay cosas cargadas")
-		}
 		return cosas.max({cosa => cosa.peso()})
 	}
 	method pesos() {
@@ -64,7 +73,7 @@ object camion {
 	  cosas.forEach({cosa => cosa.accidentarse()})
 	}
 	method transportar(destino,camino) {
-	if()
+	camino.validarViaje(self)
 	destino.recibir(cosas)
 	cosas.clear()
 	}

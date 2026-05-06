@@ -3,6 +3,11 @@ object ruta9 {
   method permiteViajar(camion) {
     return camion.puedeCircular(20)
   }
+  method validarViaje(vehiculo) {
+  if(!self.permiteViajar(vehiculo)) {
+    self.error("No se puede transportar por este camino")
+  }
+}
 }
 
 object caminosVecinales {
@@ -14,4 +19,9 @@ object caminosVecinales {
   method permiteViajar(camion) {
     return camion.pesoTotal() <= pesoMaximo
   }
+  method validarViaje(vehiculo) {
+  if(!self.permiteViajar(vehiculo)) {
+    self.error("No se puede transportar por este camino")
+  }
+}
 }
