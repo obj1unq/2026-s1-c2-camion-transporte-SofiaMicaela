@@ -1,0 +1,18 @@
+import cosas.*
+import camion.*
+import rutas.*
+import almacen.*
+describe "Test"{
+    test "Carga y descarga"{
+        camion.cargar(bumblebee)
+        assert.equals(#{bumblebee}, camion.carga())
+        camion.cargar(knightRider)
+        assert.equals(#{bumblebee,knightRider}, camion.carga())
+        camion.descargar(bumblebee)
+        assert.equals(#{knightRider}, camion.carga())
+        assert.throwsException({camion.cargar(knightRider)})
+        assert.equals(#{knightRider}, camion.carga())
+        assert.throwsException({camion.descargar(bumblebee)})
+        assert.equals(#{knightRider}, camion.carga())
+    }
+}
